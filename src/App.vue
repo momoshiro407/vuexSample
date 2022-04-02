@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <SolveEquationContainer />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SolveEquationContainer from './components/solveEquation/SolveEquationContainer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SolveEquationContainer
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  h2 {
+    border-left: 5px solid #c7c7c7;
+    border-bottom: 2px solid #c7c7c7;
+    color: #5a5a5a;
+    background: #ffffff;
+    padding-left: 10px;
+  }
+  .container {
+    padding-left: 10px;
+  }
+  input, button {
+    line-height: 20px;
+  }
 </style>

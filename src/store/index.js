@@ -1,12 +1,8 @@
 import { createStore } from 'vuex'
+import { solveEquation } from './solveEquation'
 
 export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    solveEquation
   }
 })
