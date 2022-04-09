@@ -44,7 +44,7 @@ export default {
       }
       // actionを実行するにはdispatchを用いる
       // payloadとして解の配列を渡し、ストアのsolutionsを更新する
-      $store.dispatch('setResult', solutions)
+      $store.dispatch('solveEquation/setResult', solutions)
     }
 
     return { a, b, c, error, calc }

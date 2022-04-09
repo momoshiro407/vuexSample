@@ -1,5 +1,5 @@
 export const solveEquation = {
-  namescaped: true,
+  namespaced: true,
   state: {
     solutions: [], // 計算結果
     isSolvable: true, // 解を持つかどうかのフラグ
