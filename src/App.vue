@@ -1,17 +1,20 @@
 <template>
   <SolveEquationContainer />
   <TimerContainer />
+  <WeatherForecastContainer />
 </template>
 
 <script>
 import SolveEquationContainer from './components/solveEquation/SolveEquationContainer.vue'
 import TimerContainer from './components/timer/TimerContainer.vue'
+import WeatherForecastContainer from './components/weatherForecast/WeatherForecastContainer.vue'
 
 export default {
   name: 'App',
   components: {
     SolveEquationContainer,
-    TimerContainer
+    TimerContainer,
+    WeatherForecastContainer
   }
 }
 </script>
@@ -24,9 +27,11 @@ export default {
     background: #ffffff;
     padding-left: 10px;
   }
+  h2:not(:first-child) {
+    margin-top: 50px;
+  }
   .container {
     padding-left: 10px;
-    width: 400px;
   }
   input, button {
     line-height: 20px;

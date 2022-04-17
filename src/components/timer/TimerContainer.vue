@@ -17,3 +17,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .container {
+    width: 400px;
+  }
+</style>

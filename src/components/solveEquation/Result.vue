@@ -13,7 +13,7 @@
 
 <script>
 import { useStore } from 'vuex'
-import { computed } from '@vue/runtime-core'
+import { computed } from 'vue'
 
 export default {
   setup() {
