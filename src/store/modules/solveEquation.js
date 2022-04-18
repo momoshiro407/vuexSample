@@ -5,16 +5,16 @@ export const solveEquation = {
     isSolvable: true, // 解を持つかどうかのフラグ
   },
   mutations: {
-    setSolutions(state, solutions) {
+    setSolutions (state, solutions) {
       state.solutions = solutions
     },
-    checkSolvable(state) {
+    checkSolvable (state) {
       // 解の配列が空でなければ実数解を持つと判定
       state.isSolvable = state.solutions.length > 0
     }
   },
   actions: {
-    setResult(context, solutions) {
+    setResult (context, solutions) {
       // mutationを実行するにはcommitを用いる
       context.commit('setSolutions', solutions)
       context.commit('checkSolvable')

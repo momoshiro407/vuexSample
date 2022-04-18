@@ -7,18 +7,18 @@ export const weather = {
     isLoading: true
   },
   mutations: {
-    setCityId(state, id) {
+    setCityId (state, id) {
       state.cityId = id
     },
-    setLoadingFlag(state, flag) {
+    setLoadingFlag (state, flag) {
       state.isLoading = flag
     }
   },
   actions: {
-    updateCityId(context, id) {
+    updateCityId (context, id) {
       context.commit('setCityId', id)
     },
-    getWeatherInfo(context) {
+    getWeatherInfo (context) {
       context.commit('setLoadingFlag', true)
       return new Promise((resolve, reject) => {
         axios.get(`https://weather.tsukumijima.net/api/forecast/city/${context.state.cityId}`)

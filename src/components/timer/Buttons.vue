@@ -27,15 +27,14 @@
 
 <script>
 import { useStore } from 'vuex'
-import { computed, onBeforeUnmount } from 'vue'
+import { computed } from 'vue'
 
 export default {
   setup() {
     const $store = useStore()
-    let timerId = null
-
     const isInit = computed(() => $store.state.timer.isInit)
     const isRunning = computed(() => $store.state.timer.isRunning)
+    const timerId = computed(() => $store.state.timer.timerId)
 
     // タイマーの設定時間を増やす
     const increment = (delta) => $store.dispatch('timer/incrementAct', delta)
@@ -44,34 +43,18 @@ export default {
     // 計測開始
     const startAndStop = () => {
       if (isRunning.value) {
-        clearInterval(timerId)
+        clearInterval(timerId.value)
       } else {
         // 正確な計測方法ではないが、1/100秒(10ms)毎に呼び出すことで多少精度を上げている
-        timerId = setInterval(() => decrement(0.01), 10)
+        const id = setInterval(() => decrement(0.01), 10)
+        $store.dispatch('timer/setTimerIdAct', id)
       }
       $store.dispatch('timer/startAndStopAct')
     }
     const reset = () => {
       $store.dispatch('timer/resetAct')
-      clearInterval(timerId)
+      clearInterval(timerId.value)
     }
-
-    // ストアのtimeを監視し0秒になったらタイマーを停止、メッセージを表示する
-    const unsubscribe = $store.subscribe((mutation, state) => {
-      if (mutation.type === 'timer/decrement') {
-        if (state.timer.time === 0) {
-          setTimeout(() => {
-            clearInterval(timerId)
-            reset()
-            alert('時間です')
-          }, 100)
-        }
-      }
-    })
-    // コンポーネントインスタンスのunmount直前でストアの監視を停止
-    onBeforeUnmount(() => {
-      unsubscribe()
-    })
 
     return { isInit, isRunning, increment, decrement, startAndStop, reset }
   }

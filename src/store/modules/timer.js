@@ -3,7 +3,8 @@ export const timer = {
   state: {
     time: 0, // 残り時間(ms)
     isInit: true, // 初期状態かどうかのフラグ
-    isRunning: false // カウント実行中かどうかのフラグ
+    isRunning: false, // カウント実行中かどうかのフラグ
+    timerId: null // インターバルID
   },
   getters: {
     // 残り時間を00:00:00.00にフォーマット
@@ -20,6 +21,9 @@ export const timer = {
     },
     updateIsInit (state) {
       state.isInit = false
+    },
+    setTimerId (state, timerId) {
+      state.timerId = timerId
     },
     startAndStop (state) {
       state.isRunning = !state.isRunning
@@ -38,6 +42,10 @@ export const timer = {
       if (context.state.time > 0) {
         context.commit('decrement', delta)
       }
+    },
+    setTimerIdAct (context, timerId) {
+      console.log(timerId)
+      context.commit('setTimerId', timerId)
     },
     startAndStopAct (context) {
       if (context.state.isInit) {
