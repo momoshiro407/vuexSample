@@ -39,12 +39,12 @@ export const timer = {
       context.commit('increment', delta)
     },
     decrementAct (context, delta) {
-      if (context.state.time > 0) {
+      // 現在のtimeがdelta以上の時だけ減算を行いtimeが負になるのを防ぐ
+      if (context.state.time / 1000 >= delta) {
         context.commit('decrement', delta)
       }
     },
     setTimerIdAct (context, timerId) {
-      console.log(timerId)
       context.commit('setTimerId', timerId)
     },
     startAndStopAct (context) {
