@@ -42,7 +42,6 @@ export default {
       } else if (dis === 0) {
         solutions.push((-1 * b.value ) / (2 * a.value))
       }
-      // actionを実行するにはdispatchを用いる
       // payloadとして解の配列を渡し、ストアのsolutionsを更新する
       $store.dispatch('solveEquation/setResult', solutions)
     }

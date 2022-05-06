@@ -40,7 +40,7 @@ export default {
     const increment = (delta) => $store.dispatch('timer/incrementAct', delta)
     // タイマーの設定時間を増やす
     const decrement = (delta) => $store.dispatch('timer/decrementAct', delta)
-    // 計測開始
+    // 計測開始(再開)・停止
     const startAndStop = () => {
       if (isRunning.value) {
         clearInterval(timerId.value)
@@ -51,6 +51,7 @@ export default {
       }
       $store.dispatch('timer/startAndStopAct')
     }
+    // タイマーを初期状に戻す
     const reset = () => {
       $store.dispatch('timer/resetAct')
       clearInterval(timerId.value)

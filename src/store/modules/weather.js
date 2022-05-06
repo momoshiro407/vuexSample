@@ -3,8 +3,8 @@ import axios from 'axios'
 export const weather = {
   namespaced: true,
   state: {
-    cityId: '',
-    isLoading: true
+    cityId: '', // 地域ID
+    isLoading: true // 情報取得中フラグ
   },
   mutations: {
     setCityId (state, id) {

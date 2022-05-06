@@ -21,6 +21,8 @@ export default {
     const unsubscribe = $store.subscribe((mutation, state) => {
       if (mutation.type === 'timer/decrement') {
         if (!isInit.value && state.timer.time === 0) {
+          // timeが0になった瞬間に停止すると表示時間との間に若干差(1/100秒ぐらい表示が残ったまま)がでてしまうので
+          // timeが0になってからタイマー停止まで少し遅らせている
           setTimeout(() => {
             clearInterval(timerId.value)
             $store.dispatch('timer/resetAct')

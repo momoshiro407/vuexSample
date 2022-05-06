@@ -1,7 +1,7 @@
 export const solveEquation = {
   namespaced: true,
   state: {
-    solutions: [], // 計算結果
+    solutions: [], // 解の計算結果
     isSolvable: true, // 解を持つかどうかのフラグ
   },
   mutations: {
@@ -15,7 +15,6 @@ export const solveEquation = {
   },
   actions: {
     setResult (context, solutions) {
-      // mutationを実行するにはcommitを用いる
       context.commit('setSolutions', solutions)
       context.commit('checkSolvable')
     }

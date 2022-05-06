@@ -17,8 +17,7 @@ import { computed } from 'vue'
 
 export default {
   setup() {
-    const $store = useStore() // Composition APIの場合必須
-    // ストアのstateを参照する場合はcomputedで
+    const $store = useStore()
     const solutions = computed(() => $store.state.solveEquation.solutions)
     const isSolvable = computed(() => $store.state.solveEquation.isSolvable)
 

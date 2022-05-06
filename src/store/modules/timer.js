@@ -3,7 +3,7 @@ export const timer = {
   state: {
     time: 0, // 残り時間(ms)
     isInit: true, // 初期状態かどうかのフラグ
-    isRunning: false, // カウント実行中かどうかのフラグ
+    isRunning: false, // タイマーが起動中かどうかのフラグ
     timerId: null // インターバルID
   },
   getters: {
